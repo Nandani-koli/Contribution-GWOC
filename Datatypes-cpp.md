@@ -181,7 +181,7 @@ int * a;   // a pointer to integer
 </br>
 
 <h1 align="center">Thanks For Reading</h1>
- <h3> Contributor :- @Nandani-koli  </h3> 
+ <h3> Contributor :- @Nandani-koli </h3> 
     
     
     
