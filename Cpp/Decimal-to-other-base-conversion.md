@@ -78,7 +78,7 @@ string decimalToHexadecimal(int n)
         }
         placevalue *= 10;
     }
-     
+     return ans;
 }
 int main()
 {
