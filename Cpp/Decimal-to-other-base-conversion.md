@@ -59,26 +59,23 @@ int main()
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
-string decimalToHexadecimal(int n)
+void decimalToHexadecimal(int n)
 {
-    int placevalue = 1;
-    int ans = 0;
+    int i = 1;
+    char ans[100];
     int rem = 1;
-    while (n != 0)
+     while (n != 0)
     {
-        rem = n%2;
-        n = n/2;
-        if (rem <= 9)
-        {
-            ans = ans + rem * placevalue;
-        }
+        rem = n % 16;
+        if (rem < 10)
+            ans[i++] = rem + 48;
         else
-        {
-            char c = 'A' + rem - 10;
-        }
-        placevalue *= 10;
+            ans[i++] = rem + 55;
+        n = n / 16;
     }
-     return ans;
+    cout << "\nHexadecimal => ";
+    for (int j = i; j > 0; j--)
+        cout << ans[j];
 }
 int main()
 {
@@ -86,7 +83,7 @@ int main()
     int num;
     cout << "enter decimal number:- ";
     cin >> num;
-    cout<< decimalToHexadecimal(num);
+    decimalToHexadecimal(num);
 }
 ```
 
