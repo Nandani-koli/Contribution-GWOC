@@ -21,21 +21,20 @@ int main()
 {
     int n;
     cout<<"Enter size of array:-";
-    cin>>n;
+    cin>>n;                      //input size of array
     int a[n];
     cout<<"Enter array elements:-";
     for(int i = 0; i <n;i++)
     {
-        cin>>a[i];
+        cin>>a[i];              //input array elements
     }
-    
-    for(int i = 0; i<n; i++)
+    for(int i = 0; i<n; i++)    //loop Starting point i from 0 to n
     {
-        for(int j=i;j<n; j++)
+        for(int j=i;j<n; j++)    //loop ending point j from i to n
         {
             for(int k = i; k<=j; k++)
             {
-                cout<<a[k]<<" ";
+                cout<<a[k]<<" ";     //print the elements between i and j 
             }
             cout<<endl;
         }
@@ -55,4 +54,47 @@ Given Array :-
 |---|---|---|---|---|
 
 *Following are the possible subsequence of given array ->*
+
+`1`&nbsp;&nbsp;`5`&nbsp;&nbsp;`1 5`&nbsp;&nbsp;`3`&nbsp;&nbsp;`1 3`&nbsp;&nbsp;`5 3`&nbsp;&nbsp;`1 5 3`&nbsp;&nbsp;`7`&nbsp;&nbsp;`1 7`&nbsp;&nbsp;
+`5 7`&nbsp;&nbsp;`1 5 7`&nbsp;&nbsp;`3 7`&nbsp;&nbsp;`1 3 7`&nbsp;&nbsp;`5 3 7`&nbsp;&nbsp;`1 5 3 7`&nbsp;&nbsp;`9`&nbsp;&nbsp;`1 9`&nbsp;&nbsp;`5 9`&nbsp;&nbsp;
+`1 5 9`&nbsp;&nbsp;`3 9`&nbsp;&nbsp;`1 3 9`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+`5 3 9`&nbsp;&nbsp;`1 5 3 9`&nbsp;&nbsp;`7 9`&nbsp;&nbsp;`1 7 9`&nbsp;&nbsp;
+`5 7 9`&nbsp;&nbsp;`1 5 7 9`&nbsp;&nbsp;`3 7 9`&nbsp;&nbsp;`1 3 7 9`&nbsp;&nbsp;`5 3 7 9`&nbsp;&nbsp;`1 5 3 7 9`
+
+## Program to print Subsequence
+```cpp
+#include <iostream>
+#include<cmath>
+using namespace std;
+int main(){
+    int n;
+    cout<<"Enter size of array-> ";
+    cin>>n;                           //input size of array
+    int a[n];
+    cout<<"Enter elements of array-> ";
+    for(int i = 0; i<n; i++)
+    {
+        cin>>a[i];                   //input elements of array
+    }
+    int set_size = pow(2, n) ;       //no of possible subsequences
+    for (int i = 1; i < set_size; i++)        //loop for all possible subsequences
+    {
+        //printing subsequence
+        for (int j = 0; j <= n; j++)       //loop from 0 to n 
+        {
+            if(i & (1<<j))               // if the i bit in the counter is set 
+            {
+                cout<<a[j]<<" ";          //print element for a particular subsequences.
+            }
+        }
+        cout<<endl;
+    }
+    return 0;
+}
+```
+## Output :-
+![Subsequence](https://user-images.githubusercontent.com/70843941/140635880-4d485767-49b8-45bb-aa1b-f4ec06438e32.png)
+
+***Note->***
+*Every subarray is subsequence but every subsequence is not a subarray.*
 
